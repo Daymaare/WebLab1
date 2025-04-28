@@ -1,5 +1,4 @@
-
-package se.iths.java24.sortingrunner;
+package se.iths.java24.sortingrunner.main;
 
 import se.iths.java24.service.SortingService;
 
