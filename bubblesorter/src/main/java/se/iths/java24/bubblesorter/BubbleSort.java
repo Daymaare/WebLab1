@@ -1,8 +1,8 @@
 package se.iths.java24.bubblesorter;
 
-import se.iths.java24.modules.service.Service;
+import se.iths.java24.service.SortingService;
 
-public class BubbleSort implements Service {
+public class BubbleSort implements SortingService {
 
     @Override
     public int[] execute(int[] array) {
