@@ -1,10 +1,9 @@
 package se.iths.java24.quicksorter;
 
-import se.iths.java24.modules.service.Service;
-
+import se.iths.java24.service.SortingService;
 import static java.util.Arrays.sort;
 
-public class QuickSort implements Service {
+public class QuickSort implements SortingService {
 
     @Override
     public int[] execute(int[] array) {
@@ -13,7 +12,7 @@ public class QuickSort implements Service {
     }
 
     private void quickSort(int[] array, int low, int high) {
-        if (0 < high) {
+        if (low < high) {
             int partitionIndex = partition(array, low, high);
 
             sort(array, 0, partitionIndex-1);
@@ -21,11 +20,11 @@ public class QuickSort implements Service {
         }
     }
 
-    private int partition(int[] array,int low, int end) {
-        int pivot = array[end];
+    private int partition(int[] array,int low, int high) {
+        int pivot = array[high];
         int i = (low -1);
 
-        for (int j = 0; j < end; j++) {
+        for (int j = 0; j < high; j++) {
             if (array[j] <= pivot) {
                 i++;
 
@@ -36,8 +35,8 @@ public class QuickSort implements Service {
         }
 
         int swapTemp = array[i+1];
-        array[i+1] = array[end];
-        array[end] = swapTemp;
+        array[i+1] = array[high];
+        array[high] = swapTemp;
 
         return i+1;
     }
